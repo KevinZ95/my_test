@@ -97,6 +97,19 @@ extern int sys_unlink(void);
 extern int sys_wait(void);
 extern int sys_write(void);
 extern int sys_uptime(void);
+// for module_2
+extern int sys_shm_get(void);
+extern int sys_shm_rem(void);
+
+// for module_3
+extern int sys_mux_create(void);
+extern int sys_mux_delete(void);
+extern int sys_mux_lock(void);
+extern int sys_mux_unlock(void);
+//extern int sys_muxcv_wait(void);
+//extern int sys_muxcv_signal(void);
+
+
 
 static int (*syscalls[])(void) = {
   [SYS_fork] sys_fork,   [SYS_exit] sys_exit,     [SYS_wait] sys_wait,     [SYS_pipe] sys_pipe,
@@ -104,7 +117,7 @@ static int (*syscalls[])(void) = {
   [SYS_chdir] sys_chdir, [SYS_dup] sys_dup,       [SYS_getpid] sys_getpid, [SYS_sbrk] sys_sbrk,
   [SYS_sleep] sys_sleep, [SYS_uptime] sys_uptime, [SYS_open] sys_open,     [SYS_write] sys_write,
   [SYS_mknod] sys_mknod, [SYS_unlink] sys_unlink, [SYS_link] sys_link,     [SYS_mkdir] sys_mkdir,
-  [SYS_close] sys_close,
+  [SYS_close] sys_close, [SYS_shm_get] sys_shm_get, [SYS_shm_rem] sys_shm_rem, [SYS_mux_create] sys_mux_create, [SYS_mux_delete] sys_mux_delete, [SYS_mux_lock] sys_mux_lock, [SYS_mux_unlock] sys_mux_unlock, /*[SYS_muxcv_wait] sys_muxcv_wait, [SYS_muxcv_signal] sys_muxcv_signal,*/ 
 };
 
 void

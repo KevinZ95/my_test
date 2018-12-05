@@ -10,6 +10,14 @@ struct sleeplock;
 struct stat;
 struct superblock;
 
+
+char* shm_get(char*);
+int shm_rem(char*);
+void shm_fork(char* name);
+void shm_exit(void);
+char* strcpy(char* s, char* t);
+int strcmp(const char *p, const char* q);
+
 // bio.c
 void        binit(void);
 struct buf *bread(uint, uint);
@@ -132,6 +140,13 @@ void initlock(struct spinlock *, char *);
 void release(struct spinlock *);
 void pushcli(void);
 void popcli(void);
+// the following fucntions are for Module 3 
+int  mutex_create(char *);
+void mutex_delete(int);
+void mutex_lock(int);
+void mutex_unlock(int);
+// void cv_wait(int);
+// void cv_signal(int);
 
 // sleeplock.c
 void acquiresleep(struct sleeplock *);

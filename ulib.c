@@ -96,3 +96,43 @@ memmove(void *vdst, void *vsrc, int n)
 	while (n-- > 0) *dst++= *src++;
 	return vdst;
 }
+
+
+int
+mutex_create(char *name)
+{
+   return mux_create(name);
+}
+
+
+void
+mutex_delete(int muxid)
+{
+    return mux_delete(muxid);
+}
+
+void
+mutex_lock(int muxid)
+{
+    return mux_lock(muxid);
+}
+
+
+void
+mutex_unlock(int muxid)
+{
+    return mux_unlock(muxid);
+}
+
+// condition 
+void
+cv_wait(int muxid)
+{
+
+}
+
+void
+cv_signal(int muxid)
+{
+
+}

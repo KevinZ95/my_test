@@ -29,3 +29,14 @@ SYSCALL(getpid)
 SYSCALL(sbrk)
 SYSCALL(sleep)
 SYSCALL(uptime)
+// for module_2
+SYSCALL(shm_get)
+SYSCALL(shm_rem)
+
+// for module_3
+SYSCALL(mux_create)
+SYSCALL(mux_delete)
+SYSCALL(mux_lock)
+SYSCALL(mux_unlock)
+//SYSCALL(muxcv_wait)
+//SYSCALL(muxcv_signal)

@@ -85,3 +85,65 @@ sys_uptime(void)
 	release(&tickslock);
 	return xticks;
 }
+
+int
+sys_mux_create(void)
+{
+
+    char *curLock;     // a char pointer
+    
+    if (argptr(0, (void *)&curLock, sizeof(curLock[0])) < 0) return -1;
+    
+    int result = mutex_create(curLock);
+    
+    return result;
+}
+
+
+int
+sys_mux_delete(void)
+{
+    int curLock;
+    if (argint(0, &curLock) < 0) return -1;
+    mutex_delete(curLock);
+    return 0;
+}
+
+
+int
+sys_mux_lock(void)
+{
+    int curLock;
+    if (argint(0, &curLock) < 0) return -1;
+    mutex_lock(curLock);
+    return 0;
+}
+
+int
+sys_mux_unlock(void)
+{
+    int curLock;
+    if (argint(0, &curLock) < 0) return -1;
+    mutex_unlock(curLock);
+    return 0;
+}
+/*
+int
+sys_muxcv_wait(void)
+{
+    int curLock;
+    if (argint(0, &curLock) < 0) return -1;
+    cv_wait(curLock);
+    return 0;
+}
+
+int
+sys_muxcv_signal(void)
+{
+    int curLock;
+    if (argint(0, &curLock) < 0) return -1;
+    cv_signal(curLock);
+    return 0;
+    
+}
+*/ 

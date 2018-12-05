@@ -20,3 +20,14 @@
 #define SYS_link 19
 #define SYS_mkdir 20
 #define SYS_close 21
+// for module_2
+#define SYS_shm_get 22
+#define SYS_shm_rem 23
+
+// for module_3
+#define SYS_mux_create 24
+#define SYS_mux_delete 25
+#define SYS_mux_lock 26
+#define SYS_mux_unlock 27
+// #define SYS_muxcv_wait 28
+// #define SYS_muxcv_signal 29

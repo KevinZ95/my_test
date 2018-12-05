@@ -57,6 +57,24 @@ struct proc {
 	struct file *     ofile[NOFILE]; // Open files
 	struct inode *    cwd;           // Current directory
 	char              name[16];      // Process name (debugging)
+    
+// for module_2
+    struct shm procshm[16];
+    int shm_count;
+    // Table like the global table for tracking which shared memory regions the proc has access to as well as an int to easily track how many shm regions there are for this proc
+    
+    
+// for module_3
+    int               mutexLocks[16];// lock list
+                            // the list of locks, for this process is containing
+                            // 1 process can have lots of locks; 1 lock can be used at many processes
+    int               lockNums;      // search the locks[16]
+                            // how many numbers of locks, for this process is containing
+  //  int               cv;            // condition variable
+    int               priority;
+    int               parentNums;
+
+    
 };
 
 // Process memory is laid out contiguously, low addresses first:
